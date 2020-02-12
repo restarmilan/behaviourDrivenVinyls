@@ -27,4 +27,8 @@ public abstract class Page {
     public void clickOnWebElement(WebElement element) {
           element.click();
         }
+
+    public void setInput (WebElement element, String input){
+        element.sendKeys(input);
+    }
 }
