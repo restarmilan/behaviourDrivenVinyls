@@ -18,4 +18,8 @@ public class BasePage {
         AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(this.driver, TIMEOUT);
         PageFactory.initElements(factory, this);
     }
+
+    public void navigateTo(){
+        driver.get(baseUrl);
+    }
 }
