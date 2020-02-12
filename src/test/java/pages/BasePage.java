@@ -1,25 +1,24 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class BasePage {
+public class BasePage extends Page {
 
-    final int TIMEOUT = 10;
-    WebDriver driver;
-    WebDriverWait wait;
-    String baseUrl = "https://www.discogs.com/";
+    CookieHandlerPage cookieHandlerPage;
+
+    @FindBy(xpath = "//a[@id='log_in_link']")
+    WebElement loginLink;
 
     public BasePage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, TIMEOUT);
-        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(this.driver, TIMEOUT);
-        PageFactory.initElements(factory, this);
+        super(driver);
+        cookieHandlerPage = new CookieHandlerPage(driver);
     }
 
-    public void navigateTo(){
-        driver.get(baseUrl);
+    public void clickOnLoginButton() {
+        cookieHandlerPage.acceptCookies();
+        clickOnWebElement(loginLink);
+        cookieHandlerPage.acceptCookies();
     }
 }

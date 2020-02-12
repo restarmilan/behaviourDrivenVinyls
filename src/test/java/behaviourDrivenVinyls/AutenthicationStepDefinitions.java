@@ -8,17 +8,16 @@ import pages.BasePage;
 
 public class AutenthicationStepDefinitions extends BaseStepDefs {
 
-    BasePage basePage = new BasePage(driver);
+    private BasePage basePage = new BasePage(driver);
 
     @Given("I'm on the Discogs.com page as a registered user")
     public void i_m_on_the_Discogs_com_page_as_a_registered_user() {
-        basePage.navigateTo();
+        basePage.navigateTo("");
     }
 
     @Given("I click on the Log In button")
     public void i_click_on_the_Log_In_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        basePage.clickOnLoginButton();
     }
 
     @When("I set the correct {string} and {string}")
