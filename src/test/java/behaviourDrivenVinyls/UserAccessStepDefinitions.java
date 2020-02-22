@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 import pages.BasePage;
 import pages.LoginPage;
 
-public class AutenthicationStepDefinitions extends BaseStepDefs {
+public class UserAccessStepDefinitions extends BaseStepDefs {
 
     private BasePage basePage = new BasePage(driver);
     private LoginPage loginPage = new LoginPage(driver);
