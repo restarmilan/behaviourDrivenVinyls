@@ -4,8 +4,22 @@ Feature: User access
   and unsuccessful login scenarios with incorrect username and / or password value pairs. In this case only the simple logout
   is checked.
 
-  Scenario: login with valid credentials.
+  Background:
     Given I'm on the Discogs.com page as a registered user
-    And I click on the Log In button
-    When I set the correct "username" and "password"
+    And  I click on the Log In button
+
+  @smoke @fast
+  Scenario: Login with valid credentials
+    When I set the correct username and password
     Then I should see my profile after successful login
+
+
+  Scenario Outline: Login with invalid credentials
+    When I set invalid credentials "<username>" or "<password>"
+    Then I should see a warning message
+
+    Examples:
+      | username | password     |
+      | ermilan  | passwd       |
+      | rmilan   | wrong_passwd |
+      | ermilan  |              |

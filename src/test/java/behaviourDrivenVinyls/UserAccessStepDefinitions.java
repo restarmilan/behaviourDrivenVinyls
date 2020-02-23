@@ -17,15 +17,15 @@ public class UserAccessStepDefinitions extends BaseStepDefs {
         basePage.navigateTo("");
     }
 
-    @When("I click on the Log In button")
+    @Given("I click on the Log In button")
     public void iClickOnTheLogInButton() {
         basePage.clickOnLoginButton();
     }
 
-    @When("I set the correct {string} and {string}")
-    public void iSetTheCorrectCredentials(String username, String password) {
-        username = System.getenv("DISCOGS_USERNAME");
-        password = System.getenv("DISCOGS_PASSWORD");
+    @When("I set the correct username and password")
+    public void iSetTheCorrectUsernameAndPassword() {
+        String username = System.getenv("DISCOGS_USERNAME");
+        String password = System.getenv("DISCOGS_PASSWORD");
         loginPage.setLoginCredentials(username, password);
     }
 
@@ -35,8 +35,19 @@ public class UserAccessStepDefinitions extends BaseStepDefs {
         throw new io.cucumber.java.PendingException();
     }
 
+    @When("I set invalid credentials {string} or {string}")
+    public void iSetInvalidCredentials(String username, String password) {
+        loginPage.setLoginCredentials(username, password);
+    }
+
+    @Then("I should see a warning message")
+    public void iShouldSeeAWarningMessage() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
     @After()
-    public void closeBrowser(){
+    public void closeBrowser() {
         this.driver.quit();
     }
 
