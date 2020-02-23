@@ -1,11 +1,11 @@
-package behaviourDrivenVinyls;
+package com.rmilan.behaviourDrivenVinyls.stepDefinitions;
 
+import com.rmilan.behaviourDrivenVinyls.pages.BasePage;
+import com.rmilan.behaviourDrivenVinyls.pages.LoginPage;
 import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.BasePage;
-import pages.LoginPage;
 
 public class UserAccessStepDefinitions extends BaseStepDefs {
 
