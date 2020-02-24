@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class ChromeWebDriver {
 
     @Bean
-    public WebDriver getDriver(){
+    public WebDriver getDriver() {
         String chromeDriverPath = "/home/rmilan/codecool/test_automation/chromedriver";
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
         WebDriver driver = new ChromeDriver();

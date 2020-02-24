@@ -8,11 +8,11 @@ Feature: User access
     Given I'm on the Discogs.com page as a registered user
     And  I click on the Log In button
 
+
   @smoke @fast
   Scenario: Login with valid credentials
     When I set the correct username and password
     Then I should see my profile after successful login
-
 
   Scenario Outline: Login with invalid credentials
     When I set invalid credentials "<username>" or "<password>"

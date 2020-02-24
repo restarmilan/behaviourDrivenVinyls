@@ -1,6 +1,7 @@
 package com.rmilan.behaviourDrivenVinyls.testrunner;
 
 import cucumber.api.CucumberOptions;
+import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
@@ -8,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"classpath:features/"},
         plugin = {"pretty"},
-        //snippets = CucumberOptions.SnippetType.CAMELCASE,
+        snippets = SnippetType.CAMELCASE,
         tags = "@smoke and @fast",
         glue = {"com.rmilan.behaviourDrivenVinyls.stepDefinitions"})
 public class RunCucumberTest {

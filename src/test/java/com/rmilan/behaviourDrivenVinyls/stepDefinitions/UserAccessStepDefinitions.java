@@ -3,20 +3,20 @@ package com.rmilan.behaviourDrivenVinyls.stepDefinitions;
 import com.rmilan.behaviourDrivenVinyls.pages.BasePage;
 import com.rmilan.behaviourDrivenVinyls.pages.LoginPage;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.java8.En;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class UserAccessStepDefinitions implements En {
+public class UserAccessStepDefinitions {
 
-   private final BasePage basePage;
-   private final LoginPage loginPage;
+    private final BasePage basePage;
+    private final LoginPage loginPage;
 
-   @Autowired
-   public UserAccessStepDefinitions(BasePage basePage, LoginPage loginPage){
-       this.loginPage = loginPage;
-       this.basePage = basePage;
-   }
+    @Autowired
+    public UserAccessStepDefinitions(BasePage basePage, LoginPage loginPage) {
+        this.loginPage = loginPage;
+        this.basePage = basePage;
+    }
 
     @Given("I'm on the Discogs.com page as a registered user")
     public void iAmOnTheDiscogsComPageAsARegisteredUser() {
@@ -35,9 +35,21 @@ public class UserAccessStepDefinitions implements En {
         loginPage.setLoginCredentials(username, password);
     }
 
+    @Then("I should see my profile after successful login")
+    public void iShouldSeeMyProfileAfterSuccessfulLogin() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new cucumber.api.PendingException();
+    }
+
     @When("I set invalid credentials {string} or {string}")
-    public void iSetInvalidCredentials(String username, String password) {
+    public void iSetInvalidCredentialsOr(String username, String password) {
         loginPage.setLoginCredentials(username, password);
     }
 
+    @Then("I should see a warning message")
+    public void iShouldSeeAWarningMessage() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new cucumber.api.PendingException();
+    }
 }
+
