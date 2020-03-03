@@ -15,6 +15,9 @@ public class LoginPage extends Page {
     @FindBy (xpath = "//input[@id='password']")
     WebElement passwordField;
 
+    @FindBy(xpath = "//div[@id='messages']")
+    WebElement errorMsg;
+
     @Autowired
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -25,5 +28,9 @@ public class LoginPage extends Page {
         setInput(passwordField, password);
         passwordField.submit();
 
+    }
+
+    public boolean isErrorMessageDisplayed() {
+        return errorMsg.isDisplayed();
     }
 }

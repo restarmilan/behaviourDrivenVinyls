@@ -8,7 +8,6 @@ Feature: User access
     Given I'm on the Discogs.com page as a registered user
     And  I click on the Log In button
 
-
   @smoke @fast
   Scenario: Login with valid credentials
     When I set the correct username and password

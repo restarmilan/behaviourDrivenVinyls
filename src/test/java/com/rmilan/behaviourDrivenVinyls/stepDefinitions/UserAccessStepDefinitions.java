@@ -1,21 +1,26 @@
 package com.rmilan.behaviourDrivenVinyls.stepDefinitions;
 
 import com.rmilan.behaviourDrivenVinyls.pages.BasePage;
+import com.rmilan.behaviourDrivenVinyls.pages.DashBoardPage;
 import com.rmilan.behaviourDrivenVinyls.pages.LoginPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import static org.junit.Assert.assertTrue;
+
 public class UserAccessStepDefinitions {
 
     private final BasePage basePage;
     private final LoginPage loginPage;
+    private final DashBoardPage dashBoardPage;
 
     @Autowired
-    public UserAccessStepDefinitions(BasePage basePage, LoginPage loginPage) {
+    public UserAccessStepDefinitions(BasePage basePage, LoginPage loginPage, DashBoardPage dashBoardPage) {
         this.loginPage = loginPage;
         this.basePage = basePage;
+        this.dashBoardPage = dashBoardPage;
     }
 
     @Given("I'm on the Discogs.com page as a registered user")
@@ -37,8 +42,7 @@ public class UserAccessStepDefinitions {
 
     @Then("I should see my profile after successful login")
     public void iShouldSeeMyProfileAfterSuccessfulLogin() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        assertTrue(dashBoardPage.isLoggedInUserDisplayed());
     }
 
     @When("I set invalid credentials {string} or {string}")
@@ -48,8 +52,7 @@ public class UserAccessStepDefinitions {
 
     @Then("I should see a warning message")
     public void iShouldSeeAWarningMessage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        assertTrue(loginPage.isErrorMessageDisplayed());
     }
 }
 
