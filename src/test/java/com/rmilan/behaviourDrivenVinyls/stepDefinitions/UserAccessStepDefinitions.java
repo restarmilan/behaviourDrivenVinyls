@@ -54,5 +54,15 @@ public class UserAccessStepDefinitions {
     public void iShouldSeeAWarningMessage() {
         assertTrue(loginPage.isErrorMessageDisplayed());
     }
+
+    @When("I select Log Out from my user options menu")
+    public void iSelectLogOutFromMyUserOptionsMenu() {
+        dashBoardPage.logoutFromPage();
+    }
+
+    @Then("I should see a logout message on the application homepage")
+    public void iShouldSeeALogoutMessageOnTheApplicationHomepage() {
+        assertTrue(basePage.confirmLogout());
+    }
 }
 

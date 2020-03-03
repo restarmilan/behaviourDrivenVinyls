@@ -14,6 +14,9 @@ public class BasePage extends Page {
     @FindBy(xpath = "//a[@id='log_in_link']")
     WebElement loginLink;
 
+    @FindBy(xpath = "//span[@class='alert-message-text']")
+    WebElement logoutMessage;
+
     @Autowired
     public BasePage(WebDriver driver) {
         super(driver);
@@ -24,5 +27,10 @@ public class BasePage extends Page {
         cookieHandlerPage.acceptCookies();
         clickOnWebElement(loginLink);
         cookieHandlerPage.acceptCookies();
+    }
+
+    public boolean confirmLogout() {
+        String url = driver.getCurrentUrl();
+        return url.equals(baseUrl) && logoutMessage.isDisplayed();
     }
 }
