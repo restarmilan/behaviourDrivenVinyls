@@ -18,6 +18,9 @@ public class DashBoardPage extends Page {
     @FindBy(xpath = "//a[@href='/logout']")
     WebElement logoutOption;
 
+    @FindBy(xpath = "//a[@href='/settings/user']/child ::i")
+    WebElement settingsOption;
+
 
     @Autowired
     public DashBoardPage(WebDriver driver) {
@@ -31,5 +34,10 @@ public class DashBoardPage extends Page {
     public void logoutFromPage() {
         clickOnWebElement(userActivityMenuDropdown);
         clickOnWebElement(logoutOption);
+    }
+
+    public void navigateToUserProfileSettings() {
+        clickOnWebElement(userActivityMenuDropdown);
+        clickOnWebElement(settingsOption);
     }
 }
