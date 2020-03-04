@@ -5,7 +5,7 @@ Feature: User profile settings
   Background:
     Given I'm logged in as a registered user
 
-  Scenario: Username is visible on user profile details page
+  Scenario: Username and user avatar are visible on user profile details page
     Given I'm on my profile details page
     Then I should see my username and avatar on this page
 
