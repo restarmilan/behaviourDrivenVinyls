@@ -8,7 +8,6 @@ Feature: User access
     Given I'm on the Discogs.com page as a registered user
     And  I click on the Log In button
 
-  #@smoke @fast
   Scenario: Login with valid credentials
     When I set the correct username and password
     Then I should see my profile after successful login
@@ -23,8 +22,13 @@ Feature: User access
       | rmilan   | wrong_passwd |
       | ermilan  |              |
 
-  @smoke @fast
   Scenario: Logout from page
     When I set the correct username and password
     And I select Log Out from my user options menu
     Then I should see a logout message on the application homepage
+
+  Scenario: Logout after browser backwards navigation
+    When I set the correct username and password
+    And I select Log Out from my user options menu
+    And I navigate back the browser after logout
+    Then I should be still logged out from the application
