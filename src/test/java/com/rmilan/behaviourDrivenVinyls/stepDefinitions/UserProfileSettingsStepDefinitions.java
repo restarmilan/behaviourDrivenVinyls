@@ -88,14 +88,15 @@ public class UserProfileSettingsStepDefinitions {
 
     @Given("I set a profile description on profile settings name")
     public void iSetAProfileDescriptionOnProfileSettingsName() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        profileSettingsPage.setUserProfileDescription(description);
     }
 
     @Then("I should see this description on my profile details page")
     public void iShouldSeeThisDescriptionOnMyProfileDetailsPage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        dashBoardPage.navigateTo("user/" + System.getenv("DISCOGS_USERNAME"));
+        assertEquals(profileDetailsPage.getUserProfileDescription(), description);
+        profileDetailsPage.navigateTo("settings/user");
+        profileSettingsPage.restoreOriginalState(UserSettingsOptions.DESCRIPTION);
     }
 
     @Then("I should see my username and avatar on this page")

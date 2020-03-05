@@ -24,6 +24,9 @@ public class ProfileDetailsPage extends Page {
     @FindBy(xpath = "//ul[@class='list_no_style profile_bio']//child::li[1]")
     WebElement locationDisplay;
 
+    @FindBy(xpath = "//div[@class='hide_mobile']")
+    WebElement descriptionDisplay;
+
     @Autowired
     public ProfileDetailsPage(WebDriver driver) {
         super(driver);
@@ -47,5 +50,9 @@ public class ProfileDetailsPage extends Page {
 
     public String getUserLocation() {
         return locationDisplay.getText();
+    }
+
+    public String getUserProfileDescription() {
+        return descriptionDisplay.getText();
     }
 }

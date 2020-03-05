@@ -41,6 +41,11 @@ public class ProfileSettingsPage extends Page {
         this.waitForConfirm();
     }
 
+    public void setUserProfileDescription(String description) {
+        setInput(profileDescriptionField, description);
+        this.waitForConfirm();
+    }
+
     public void waitForConfirm() {
         saveChangesBtn.click();
         wait.until(ExpectedConditions.visibilityOf(changeConfirmMsg));
@@ -51,7 +56,6 @@ public class ProfileSettingsPage extends Page {
     }
 
     public void restoreOriginalState(UserSettingsOptions userSettingsOptions) {
-        navigateTo("settings/user");
         switch (userSettingsOptions) {
             case REALNAME:
                 nameSettingsField.clear();
