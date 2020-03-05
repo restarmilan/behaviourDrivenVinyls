@@ -36,6 +36,11 @@ public class ProfileSettingsPage extends Page {
         this.waitForConfirm();
     }
 
+    public void setUserLocation(String location) {
+        setInput(locationSettingsField, location);
+        this.waitForConfirm();
+    }
+
     public void waitForConfirm() {
         saveChangesBtn.click();
         wait.until(ExpectedConditions.visibilityOf(changeConfirmMsg));
@@ -49,15 +54,15 @@ public class ProfileSettingsPage extends Page {
         navigateTo("settings/user");
         switch (userSettingsOptions) {
             case REALNAME:
-                setInput(nameSettingsField, "");
+                nameSettingsField.clear();
                 saveChangesBtn.click();
                 break;
             case LOCATION:
-                setInput(locationSettingsField, "");
+                locationSettingsField.clear();
                 saveChangesBtn.click();
                 break;
             case DESCRIPTION:
-                setInput(profileDescriptionField, "");
+                profileDescriptionField.clear();
                 saveChangesBtn.click();
                 break;
         }

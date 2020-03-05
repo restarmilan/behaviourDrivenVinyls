@@ -75,14 +75,15 @@ public class UserProfileSettingsStepDefinitions {
 
     @Given("I set my location on profile settings page")
     public void iSetMyLocationOnProfileSettingsPage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        profileSettingsPage.setUserLocation(location);
     }
 
     @Then("I should see my location on my profile details page")
     public void iShouldSeeMyLocationOnMyProfileDetailsPage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        dashBoardPage.navigateTo("user/" + System.getenv("DISCOGS_USERNAME"));
+        assertEquals(profileDetailsPage.getUserLocation(), location);
+        profileDetailsPage.navigateTo("settings/user");
+        profileSettingsPage.restoreOriginalState(UserSettingsOptions.LOCATION);
     }
 
     @Given("I set a profile description on profile settings name")

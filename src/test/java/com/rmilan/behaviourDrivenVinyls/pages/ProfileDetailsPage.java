@@ -21,6 +21,9 @@ public class ProfileDetailsPage extends Page {
     @FindBy(xpath = "//span[@class='real_name']")
     WebElement realNameDisplay;
 
+    @FindBy(xpath = "//ul[@class='list_no_style profile_bio']//child::li[1]")
+    WebElement locationDisplay;
+
     @Autowired
     public ProfileDetailsPage(WebDriver driver) {
         super(driver);
@@ -40,5 +43,9 @@ public class ProfileDetailsPage extends Page {
 
     public String getUserRealName() {
         return realNameDisplay.getText();
+    }
+
+    public String getUserLocation() {
+        return locationDisplay.getText();
     }
 }
