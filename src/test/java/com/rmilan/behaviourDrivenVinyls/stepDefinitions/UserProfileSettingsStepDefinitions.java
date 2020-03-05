@@ -6,6 +6,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class UserProfileSettingsStepDefinitions {
@@ -15,6 +16,10 @@ public class UserProfileSettingsStepDefinitions {
     private final DashBoardPage dashBoardPage;
     private final ProfileDetailsPage profileDetailsPage;
     private final ProfileSettingsPage profileSettingsPage;
+
+    private String realName = "Milan Restar";
+    private String location = "Budapest";
+    private String description = "This is a description";
 
     @Autowired
     public UserProfileSettingsStepDefinitions(
@@ -56,14 +61,13 @@ public class UserProfileSettingsStepDefinitions {
 
     @Given("I set my real name on profile settings page")
     public void iSetMyRealNameOnProfileSettingsPage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        profileSettingsPage.setUserRealName(realName);
     }
 
     @Then("I should see my real name on my profile details page")
     public void iShouldSeeMyRealNameOnMyProfileDetailsPage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        dashBoardPage.navigateTo("user/" + System.getenv("DISCOGS_USERNAME"));
+        assertEquals(profileDetailsPage.getUserRealName(), realName);
     }
 
     @Given("I set my location on profile settings page")
@@ -94,5 +98,11 @@ public class UserProfileSettingsStepDefinitions {
     public void iShouldSeeMyUsernameAndAvatarOnThisPage() {
         assertTrue(profileDetailsPage.isCorrectUsernameVisible());
         assertTrue(profileDetailsPage.isCorrectUserAvatarVisible());
+    }
+
+    @Then("I should see a confirmation message about saved changes")
+    public void iShouldSeeAConfirmationMessageAboutSavedChanges() {
+        assertTrue(profileSettingsPage.isChangeConfirmed());
+
     }
 }

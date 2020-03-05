@@ -18,6 +18,9 @@ public class ProfileDetailsPage extends Page {
     @FindBy(xpath = "//img[@class='full_width']")
     WebElement userAvatar;
 
+    @FindBy(xpath = "//span[@class='real_name']")
+    WebElement realNameDisplay;
+
     @Autowired
     public ProfileDetailsPage(WebDriver driver) {
         super(driver);
@@ -33,5 +36,9 @@ public class ProfileDetailsPage extends Page {
 
     public boolean isCorrectUserAvatarVisible() {
         return userAvatar.getAttribute("alt").equals(System.getenv("DISCOGS_USERNAME"));
+    }
+
+    public String getUserRealName() {
+        return realNameDisplay.getText();
     }
 }
