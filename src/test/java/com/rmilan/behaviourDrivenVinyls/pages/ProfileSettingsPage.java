@@ -50,15 +50,15 @@ public class ProfileSettingsPage extends Page {
         switch (userSettingsOptions) {
             case REALNAME:
                 setInput(nameSettingsField, "");
-                saveChangesBtn.submit();
+                saveChangesBtn.click();
                 break;
             case LOCATION:
                 setInput(locationSettingsField, "");
-                saveChangesBtn.submit();
+                saveChangesBtn.click();
                 break;
             case DESCRIPTION:
                 setInput(profileDescriptionField, "");
-                saveChangesBtn.submit();
+                saveChangesBtn.click();
                 break;
         }
     }

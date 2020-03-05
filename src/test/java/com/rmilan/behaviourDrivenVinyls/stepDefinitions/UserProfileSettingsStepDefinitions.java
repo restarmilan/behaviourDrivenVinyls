@@ -1,6 +1,7 @@
 package com.rmilan.behaviourDrivenVinyls.stepDefinitions;
 
 import com.rmilan.behaviourDrivenVinyls.pages.*;
+import com.rmilan.behaviourDrivenVinyls.utils.UserSettingsOptions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -68,6 +69,8 @@ public class UserProfileSettingsStepDefinitions {
     public void iShouldSeeMyRealNameOnMyProfileDetailsPage() {
         dashBoardPage.navigateTo("user/" + System.getenv("DISCOGS_USERNAME"));
         assertEquals(profileDetailsPage.getUserRealName(), realName);
+        profileDetailsPage.navigateTo("settings/user");
+        profileSettingsPage.restoreOriginalState(UserSettingsOptions.REALNAME);
     }
 
     @Given("I set my location on profile settings page")
