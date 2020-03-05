@@ -3,6 +3,7 @@ package com.rmilan.behaviourDrivenVinyls.stepDefinitions;
 import com.rmilan.behaviourDrivenVinyls.pages.BasePage;
 import com.rmilan.behaviourDrivenVinyls.pages.DashBoardPage;
 import com.rmilan.behaviourDrivenVinyls.pages.LoginPage;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -63,6 +64,16 @@ public class UserAccessStepDefinitions {
     @Then("I should see a logout message on the application homepage")
     public void iShouldSeeALogoutMessageOnTheApplicationHomepage() {
         assertTrue(basePage.confirmLogout());
+    }
+
+    @And("I navigate back the browser after logout")
+    public void iNavigateBackTheBrowserAfterLogout() {
+        basePage.browserNavigateBack();
+    }
+
+    @Then("I should be still logged out from the application")
+    public void iShouldBeStillLoggedOutFromTheApplication() {
+        assertTrue(loginPage.isLoginFormDisplayed());
     }
 }
 

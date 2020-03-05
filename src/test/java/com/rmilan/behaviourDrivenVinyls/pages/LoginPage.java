@@ -18,6 +18,9 @@ public class LoginPage extends Page {
     @FindBy(xpath = "//div[@id='messages']")
     WebElement errorMsg;
 
+    @FindBy(xpath = "//form[@id='login-form']")
+    WebElement loginForm;
+
     @Autowired
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -27,10 +30,15 @@ public class LoginPage extends Page {
         setInput(usernameField, username);
         setInput(passwordField, password);
         passwordField.submit();
-
     }
 
     public boolean isErrorMessageDisplayed() {
         return errorMsg.isDisplayed();
     }
+
+    public boolean isLoginFormDisplayed() {
+        return loginForm.isDisplayed();
+    }
+
+
 }

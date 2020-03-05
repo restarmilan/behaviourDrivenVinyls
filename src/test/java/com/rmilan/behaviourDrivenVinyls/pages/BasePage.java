@@ -33,4 +33,8 @@ public class BasePage extends Page {
         String url = driver.getCurrentUrl();
         return url.equals(baseUrl) && logoutMessage.isDisplayed();
     }
+
+    public void browserNavigateBack() {
+        driver.navigate().back();
+    }
 }
