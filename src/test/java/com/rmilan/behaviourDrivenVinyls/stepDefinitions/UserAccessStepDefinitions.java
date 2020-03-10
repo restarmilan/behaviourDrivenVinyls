@@ -26,7 +26,7 @@ public class UserAccessStepDefinitions {
 
     @Given("I'm on the Discogs.com page as a registered user")
     public void iAmOnTheDiscogsComPageAsARegisteredUser() {
-        basePage.navigateTo("");
+        basePage.navigateTo();
     }
 
     @Given("I click on the Log In button")

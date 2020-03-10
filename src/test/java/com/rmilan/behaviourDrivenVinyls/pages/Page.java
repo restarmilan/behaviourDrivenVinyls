@@ -20,6 +20,10 @@ public abstract class Page {
         PageFactory.initElements(factory, this);
     }
 
+    public void navigateTo() {
+        driver.get(baseUrl);
+    }
+
     public void navigateTo(String urlExtension){
         driver.get(baseUrl+urlExtension);
     }

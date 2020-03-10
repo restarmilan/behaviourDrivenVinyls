@@ -35,7 +35,7 @@ public class UserProfileSettingsStepDefinitions {
 
     @Given("I'm logged in as a registered user")
     public void iAmLoggedInAsARegisteredUser() {
-        basePage.navigateTo("");
+        basePage.navigateTo();
         basePage.clickOnLoginButton();
         loginPage.setLoginCredentials(System.getenv("DISCOGS_USERNAME"), System.getenv("DISCOGS_PASSWORD"));
     }
