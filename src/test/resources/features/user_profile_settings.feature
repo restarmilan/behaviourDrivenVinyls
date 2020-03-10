@@ -9,17 +9,20 @@ Feature: User profile settings
     Given I'm on my profile details page
     Then I should see my username and avatar on this page
 
+  @smoke @fast
   Scenario: Quick link for profile settings page
     Given I'm on my profile details page
     When I click on the Settings button
     Then I should be redirected to my profile settings page
 
+  @smoke @fast
   Scenario: Set real name for registered user
     Given I'm on the user profile settings page
     When I set my real name on profile settings page
     Then I should see a confirmation message about saved changes
     And I should see my real name on my profile details page
 
+  @smoke @fast
   Scenario: Set geographic location for registered user
     Given I'm on the user profile settings page
     When I set my location on profile settings page
