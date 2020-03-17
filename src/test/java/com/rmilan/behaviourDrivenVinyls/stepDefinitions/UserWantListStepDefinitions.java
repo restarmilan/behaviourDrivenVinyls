@@ -138,4 +138,63 @@ public class UserWantListStepDefinitions {
         throw new cucumber.api.PendingException();
     }
 
+    @Given("I add multiple items to my want list")
+    public void iAddMultipleItemsToMyWantList() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new cucumber.api.PendingException();
+    }
+
+    @When("I am on my want list page")
+    public void iAmOnMyWantListPage() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new cucumber.api.PendingException();
+    }
+
+    @Then("I should see every added item listed")
+    public void iShouldSeeEveryAddedItemListed() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new cucumber.api.PendingException();
+    }
+
+    @Then("Want list header should show the number of listed items")
+    public void wantListHeaderShouldShowTheNumberOfListedItems() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new cucumber.api.PendingException();
+    }
+
+    @When("I select every items for removal")
+    public void iSelectEveryItemsForRemoval() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new cucumber.api.PendingException();
+    }
+
+    @Then("My want list should be empty")
+    public void myWantListShouldBeEmpty() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new cucumber.api.PendingException();
+    }
+
+    @When("I set {string} into the search bar")
+    public void iSetIntoTheSearchBar(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new cucumber.api.PendingException();
+    }
+
+    @Then("I should see {string} on my want list page")
+    public void iShouldSeeOnMyWantListPage(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new cucumber.api.PendingException();
+    }
+
+    @When("I want to see every available copies")
+    public void iWantToSeeEveryAvailableCopies() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new cucumber.api.PendingException();
+    }
+
+    @Then("A cumulative page appears with every copies for sale")
+    public void aCumulativePageAppearsWithEveryCopiesForSale() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new cucumber.api.PendingException();
+    }
 }
