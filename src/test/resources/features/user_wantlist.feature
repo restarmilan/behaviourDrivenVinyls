@@ -67,5 +67,46 @@ Feature: User want list
     When I select Large Covers displaying option
     Then The added notes to want list items aren't displaying
 
+  Scenario: Add multiple items to want list
+    Given I add multiple items to my want list
+    When I am on my want list page
+    Then I should see every added item listed
+    And Want list header should show the number of listed items
+
+  Scenario: Remove multiple items from my want list
+    Given I add multiple items to my want list
+    When I am on my want list page
+    And I select every items for removal
+    Then My want list should be empty
+
+  Scenario Outline: : Search want listed item
+    Given I add multiple items to my want list
+    When I am on my want list page
+    And I set "<keyword>" into the search bar
+    Then I should see "<result>" on my want list page
+
+    Examples:
+      | keyword          | result           |
+      | La Dispute       | La Dispute       |
+      | la dispute       | La Dispute       |
+      | LA DISPUTE       | La Dispute       |
+      | Wildlife         | Wildlife         |
+      | No Sleep Records | No Sleep Records |
+      | 2018             | 2018             |
+  """
+    Searched item already set in "I add multiple items to my want list" step. There will be three records added,
+    but they are uniquely, so search terms fit only for one of those.
+    Record as a base for check search functions: La Dispute - Wildlife (No Sleep Records, 2018)
+    """
+
+  Scenario: Show all listed item's available copies
+
+  This scenario checks that if there are multiple items in marketplace, then "Show Items in Marketplace" feature
+  shows every available copies of all of them.
+
+    Given I add multiple items to my want list
+    When I am on my want list page
+    And I want to see every available copies
+    Then A cumulative page appears with every copies for sale
 
 
