@@ -67,6 +67,7 @@ Feature: User want list
     When I select Large Covers displaying option
     Then The added notes to want list items aren't displaying
 
+  @smoke @fast
   Scenario: Add multiple items to want list
     Given I add multiple items to my want list
     When I am on my want list page
@@ -79,7 +80,12 @@ Feature: User want list
     And I select every items for removal
     Then My want list should be empty
 
-  Scenario Outline: : Search want listed item
+  Scenario Outline: Search want listed item
+  """
+  Searched item already set in "I add multiple items to my want list" step. There will be three records added,
+  but they are uniquely, so search terms fit only for one of those.
+  Record as a base for check search functions: La Dispute - Wildlife (No Sleep Records, 2018)
+  """
     Given I add multiple items to my want list
     When I am on my want list page
     And I set "<keyword>" into the search bar
@@ -93,11 +99,6 @@ Feature: User want list
       | Wildlife         | Wildlife         |
       | No Sleep Records | No Sleep Records |
       | 2018             | 2018             |
-  """
-    Searched item already set in "I add multiple items to my want list" step. There will be three records added,
-    but they are uniquely, so search terms fit only for one of those.
-    Record as a base for check search functions: La Dispute - Wildlife (No Sleep Records, 2018)
-    """
 
   Scenario: Show all listed item's available copies
 
